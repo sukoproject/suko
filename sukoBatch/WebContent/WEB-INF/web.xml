@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>sukoBatch</display-name>
+  <welcome-file-list>
+    <welcome-file>batch</welcome-file>
+  </welcome-file-list>
+  
+	
+	<!-- BATCH -->
+	<servlet>
+	    <servlet-name>Batch</servlet-name>
+	    <servlet-class>com.suko.batch</servlet-class>
+	    
+        <init-param>
+        	<param-name>JIRAGetDocuments</param-name>
+        	<param-value>JIRA Get Documents</param-value>
+        </init-param>
+        <init-param><param-name>JIRAGetDocumentsClassName</param-name>
+        			<param-value>com.sukoService.backoffice.service.dowser.jira.GetDocumentBatch</param-value>
+        </init-param>
+        <init-param><param-name>JIRAGetDocumentsLanguage</param-name>
+        			<param-value>EN</param-value>
+        </init-param>
+        <init-param><param-name>JIRAGetDocumentsCronExpression</param-name>
+        			<param-value>0 0/1 * 1/1 * ?</param-value>
+        </init-param>
+        
+        <init-param>
+        	<param-name>JIRAReadDocument</param-name>
+        	<param-value>JIRA Read Document</param-value>
+        </init-param>
+        <init-param><param-name>JIRAReadDocumentClassName</param-name>
+        			<param-value>com.sukoService.backoffice.service.dowser.jira.ReadDocumentBatch</param-value>
+        </init-param>
+        <init-param><param-name>JIRAReadDocumentLanguage</param-name>
+        			<param-value>EN</param-value>
+        </init-param>
+        <init-param><param-name>JIRAReadDocumentCronExpression</param-name>
+        			<param-value>0 0/1 * 1/1 * ?</param-value>
+        </init-param>
+        
+       <load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Batch</servlet-name>
+		<url-pattern>/batch</url-pattern>
+	</servlet-mapping>
+    
+</web-app>
